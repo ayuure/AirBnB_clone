@@ -1,1 +1,1 @@
-eadme file.... WIll be updated
+Readme file.... WIll be updated
