@@ -12,7 +12,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialization of the BaseModel class
-        Args: 
+        Args:
             - *args: list of arguements
             - **kwargs: key/value pair arguements
         """
@@ -46,4 +46,5 @@ class BaseModel:
 
     def __str__(self):
         """returns the string representation of an instance"""
-        return "[{}] ({}) {}".format(__class__.__name__, self.id, self.__dict__)
+        cls_name = __class__.__name__
+        return "[{}] ({}) {}".format(cls_name, self.id, self.__dict__)
