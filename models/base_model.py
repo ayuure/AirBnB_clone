@@ -13,8 +13,8 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Initialization of the BaseModel class
         Args:
-            - *args: list of arguements
-            - **kwargs: key/value pair arguements
+                - *args: list of arguements
+                - **kwargs: key/value pair arguements
         """
         if kwargs is not None and kwargs != {}:
             for key, value in kwargs.items():

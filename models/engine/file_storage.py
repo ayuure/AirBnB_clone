@@ -11,8 +11,8 @@ class FileStorage:
     def __init__(self):
         """Initialization of FileStorage instances
         Args:
-            - __file_path: json file
-            - __objects: dictionary representation an instance
+                - __file_path: json file
+                - __objects: dictionary representation an instance
         """
         self.__file_path = "file.json"
         self.__objects = dict()
