@@ -1,4 +1,5 @@
-from models.base_model import BaseModel
+#!/usr/bin/python3
+from base_model import BaseModel
 
 my_model = BaseModel()
 my_model.name = "My_First_Model"
