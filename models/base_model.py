@@ -4,7 +4,8 @@
 
 import uuid
 import datetime
-from models import storage
+
+# from models import storage
 
 
 class BaseModel:
@@ -18,23 +19,20 @@ class BaseModel:
         """
         if kwargs is not None and kwargs != {}:
             for key, value in kwargs.items():
-                if key != "__class__":
-                    if key in ("created_at", "updated_at"):
-                        self.__dict__[key] = datetime.datetime.strptime(
-                            value, "%Y-%m-%dT%H:%M:%S.%f"
-                        )
-                    else:
-                        self.__dict__[key] = value
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.datetime.now()
+                else:
+                    self.__dict__[key] = value
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now().isoformat()
-            storage.new(self)
+            self.created_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
+            # storage.new(self)
 
     def save(self):
         """returns and saves the updated time"""
-        self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
-        storage.save()
+        # storage.save()
 
     def to_dict(self):
         """returns the dictionary representation of the Base class"""
