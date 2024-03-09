@@ -8,7 +8,7 @@ from models import storage
 
 
 class BaseModel:
-    """Class for the BaseModel"""
+    """Class for the BaseModel (super class)"""
 
     def __init__(self, *args, **kwargs):
         """Initialization of the BaseModel class
