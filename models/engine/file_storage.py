@@ -25,12 +25,8 @@ class FileStorage:
         """create a new key/value pair object"""
         key = "{}.{}".format(__class__.__name__, obj.id)
         self.__objects[key] = obj
-        # self.__objects = obj
-        # setattr(self, obj, self.id)
 
-    def save(
-        self,
-    ):
+    def save(self):
         """serialize and store the json representation of an instance"""
         with open(self.__file_path, mode="w", encoding="utf-8") as file:
             for key, value in self.__objects.items():
