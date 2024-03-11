@@ -19,26 +19,26 @@ class FileStorage:
 
     def all(self):
         """returns all dictionary representations"""
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """create a new key/value pair object"""
-        key = "{}.{}".format(type(self).__name__, obj.id)
-        FileStorage.__objects[key] = obj
+        key = "{}.{}".format(type.__name__, obj.id)
+        self.__objects[key] = obj
 
     def save(self):
         """serialize and store the json representation of an instance"""
-        with open(FileStorage.__file_path, mode="w", encoding="utf-8") as file:
-            for key, value in FileStorage.__objects.items():
+        with open(self.__file_path, mode="w", encoding="utf-8") as file:
+            for key, value in self.__objects.items():
                 json.dump({key: value.to_dict()}, file)
 
     def reload(self):
         """deserialize and loads objects from the json file"""
-        if os.path.isfile(FileStorage.__file_path):
-            with open(FileStorage.__file_path, mode="r", encoding="utf-8") as file:
+        if os.path.isfile(self.__file_path):
+            with open(self.__file_path, mode="r", encoding="utf-8") as file:
                 data = json.load(file)
                 for key, value in data.items():
                     cls_name, obj_id = key.split(".")
                     cls_ = eval(cls_name)
                     obj = cls_(**value)
-                    FileStorage.__objects[key] = obj
+                    self.__objects[key] = obj
