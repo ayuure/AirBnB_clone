@@ -1,0 +1,27 @@
+.places{
+    padding-left: 10px;
+    margin-bottom: 10px;
+    height: fit-content;
+
+}
+.top > h2{
+    font-size: 30px;
+}
+div ul{
+    display: flex;
+}
+li article {
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    margin: 20px;
+    width: 390px;
+    border: 1px #FF5A5F solid;
+    border-radius: 4px;
+}
+.third{
+    display: flex;
+    justify-content: center;
+}
+
+
